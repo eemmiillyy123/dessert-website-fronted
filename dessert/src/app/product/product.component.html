@@ -1,0 +1,36 @@
+<!-- <div class="image d-flex">
+  <div class="swissroll">
+    <img src="https://images.unsplash.com/photo-1627308592814-f88b68f7b4a1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0Mzc0NDd8MHwxfHNlYXJjaHw0fHxzd2lzcyUyMHJvbGx8ZW58MHx8fHwxNjkxOTg0OTI0fDA&ixlib=rb-4.0.3&q=85&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450" alt="北海道抹茶生乳捲"  width="250x" height="200px">
+    <p>北海道抹茶生乳捲<br>NT$400</p>
+  </div>
+  <div class="swissroll">
+    <img src="https://images.unsplash.com/photo-1548587459-edc9a4a56af6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0Mzc0NDd8MHwxfHNlYXJjaHw1fHwlMjByb2xsJTIwY2FrZXxlbnwwfHx8fDE2OTE5ODUwNDF8MA&ixlib=rb-4.0.3&q=85&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450" alt="北海道原味生乳捲" width="250px" height="200px">
+    <p>北海道原味生乳捲<br>NT$380</p>
+  </div>
+  <div class="swissroll">
+    <img src="https://images.unsplash.com/photo-1597922650255-ee028067d737?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0Mzc0NDd8MHwxfHNlYXJjaHwyfHwlMjByb2xsJTIwY2FrZXxlbnwwfHx8fDE2OTE5ODUwNDF8MA&ixlib=rb-4.0.3&q=85&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450" alt="北海道巧克力生乳捲" width="250px" height="200px">
+    <p>北海道巧克力生乳捲<br>NT$380</p>
+  </div>
+</div> -->
+
+  <!-- <p>{{item}}</p> -->
+
+  <a routerLink="/product"></a>
+  <!-- <div class="d-flex"> -->
+    <div class="container pt-5">
+      <!-- <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">商品</a></li>
+          <li class="breadcrumb-item active" aria-current="page">11</li>
+        </ol>
+      </nav> -->
+      <div class="row">
+          <div *ngFor="let item of array" class="col-4 productGroup text-center" [routerLink]="['/product-description', item.productId]" (click)="description(item.productId)">
+            <!-- <div class="col-4"> -->
+              <img [src]="item.img" alt="Product Image" width="270px" height="280px" class="img-fluid rounded">
+              <p class="mt-2 "style="font-size:large;font-weight:bold;">{{ item.productName }}</p>
+              <p class="dollar" style="font-weight:bold">NT${{ item.price }}</p>
+            <!-- </div> -->
+          </div>
+      </div>
+    </div>

@@ -1,0 +1,97 @@
+<router-outlet></router-outlet>
+<div class="container py-2" >
+  <div class="process mx-auto" style="width: 600px;height: 40px;">
+    <div class="progress-container">
+      <div class="progress">
+          <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <button type="button" class="progress-btn btn btn-sm btn-secondary rounded-pill" style="left: 0%;">1</button>
+      <button type="button" class="progress-btn btn btn-sm btn-secondary rounded-pill" style="left: 50%; transform: translateX(-50%) translateY(-50%);">2</button>
+      <button type="button" class="progress-btn btn btn-sm btn-secondary rounded-pill" style="background-color: #adb5bd;right: 0%;">3</button>
+    </div>
+
+  </div>
+  <div class="d-flex justify-content-between mx-auto" style="width: 630px;">
+    <p>購物車</p>
+    <p>填寫資料</p>
+    <p>訂單確認</p>
+  </div>
+  <br>
+  <div class="form d-flex " style="gap: 50px;">
+    <div class="border mx-auto " style="width: 900px;">
+      <form *ngIf="formGroup" [formGroup]="formGroup"  >
+        <div class="cart-text border text-center p-2">購買人資料</div>
+        <div class="form-content p-3">
+          <p class="mb-0">姓名</p>
+          <input type="text" class="form-control" formControlName="name">
+          <span class="error-message">{{ getErrorMessage("name") }}</span>
+          <p class="mb-0">電子信箱</p>
+          <p>{{email}}</p>
+          <p class="mb-0">手機號碼 </p>
+          <input type="text" class="form-control" formControlName="phoneNumber">
+          <span class="error-message">{{ getErrorMessage("phoneNumber") }}</span>
+          <p class="mb-0">地址</p>
+          <input type="text" class="form-control" formControlName="site">
+          <span class="error-message">{{ getErrorMessage("site") }}</span>
+        </div>
+      </form>
+      </div>
+
+
+    <div class="border mx-auto" style="width: 900px;">
+      <div class="cart-text border text-center p-2">付款及運送方式</div>
+      <div class="form-content p-3">
+        <p class="mb-0">送貨方式</p>
+        <form *ngIf="payAndSendGroup" [formGroup]="payAndSendGroup"  >
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="deliveryMethod">
+            <option value="店內自取" selected>店內自取</option>
+            <option value="黑貓宅急便-冷凍">黑貓宅急便-冷凍</option>
+            <option value="黑貓宅急便-冷藏">黑貓宅急便-冷藏</option>
+          </select>
+          <span class="error-message">{{ getErrorMessage("deliveryMethod") }}</span>
+          <p class="mb-0">付款方式 </p>
+          <select class="form-select" aria-label="Default select example" formControlName="paymentMethod">
+            <option value="店內付款" selected>店內付款</option>
+            <option value="信用卡">信用卡</option>
+            <option value="轉帳">轉帳</option>
+          </select>
+          <span class="error-message">{{ getErrorMessage("paymentMethod") }}</span>
+          <p class="mb-0" >選擇日期: </p>
+          <!-- <label for="exampleDate">選擇日期:</label> -->
+                <!-- <input type="date" class="form-control" id="exampleDate" min="{{ today }}"> -->
+          <input type="date" [min]="minDate" formControlName="deliveryDate">
+          <span class="error-message">{{ getErrorMessage("deliveryDate") }}</span>
+          <p class="mb-0">備註</p>
+          <input type="text" class="form-control" formControlName="note">
+        </form>
+
+      </div>
+      </div>
+  </div>
+  <!-- <div class="border mx-auto " style="width: 900px;">
+    <div class="cart-text border text-center p-2">收件人資料</div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (click)="checkckecked()">
+      <label class="form-check-label" for="flexCheckChecked">
+        收件人資料與購買人資料相同
+      </label>
+    </div>
+    <div class="form-content p-3">
+      <p class="mb-0">姓名</p>
+      <input type="text" class="form-control" [(ngModel)]="receiverName">
+      <p class="mb-0">電子信箱 </p>
+      <p>{{email}}</p>
+      <p class="mb-0">手機號碼 </p>
+      <input type="text" class="form-control" [(ngModel)]="receiverPhoneNumber">
+      <p class="mb-0">地址</p>
+      <input type="text" class="form-control" [(ngModel)]="receiverSite">
+    </div>
+  </div> -->
+  <div class="mx-auto d-flex justify-content-between my-4" style="width: 900px;">
+    <button type="button" (click)="goBack()">上一步</button>
+    <button type="button"  [disabled]="isFormInvalid" (click)="nextStep()">下一步</button>
+    <!-- <button type="button" data-toggle="modal" data-target="#myModal">下一步</button> -->
+  </div>
+
+
+</div>

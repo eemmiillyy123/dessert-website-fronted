@@ -1,0 +1,86 @@
+
+.row{
+  padding:80px 0px;
+  .login{
+    font-size: 32px;
+  }
+  .mb-3{
+    label{
+      font-size: 22px;
+    }
+    input{
+      width: 300px;
+      background: #D9D9D9;
+    }
+    .form-control::placeholder { /* 针对现代浏览器 */
+      color: #9A8A8A;
+    }
+    span{
+      font-size: 12px;
+      font-weight: bold;
+      color: #9A8A8A;
+    }
+  }
+  .under_psword{
+    color: #9A8A8A;
+    font-size: 12px;
+    cursor: pointer;
+    p:hover{
+      text-decoration: underline;
+    }
+    .form-check-input {
+      position: absolute;
+      margin-top: .2rem;
+      margin-left: -1rem;
+    }
+    .form-check{
+      padding-left:1rem;
+    }
+  }
+  .login_btn{
+    width: 300px;
+  }
+}
+.section{
+  h3{
+    font-size: 22px;
+    color:#9A8A8A;
+  }
+  .item{
+      border-top: 1px solid #9A8A8A;
+      h3:hover{
+        cursor: pointer;
+        font-weight: bold;
+      }
+      h3{
+        text-align: center;
+      }
+  }
+  .member_selection{
+    div{
+      margin-top: 20px;
+    }
+    input,.setNewPwd{
+      width: 300px;
+    };
+    .membername{
+      h3{
+        margin: 0px;
+      }
+    }
+    .setNewPwd:hover{
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .saveBtn{
+      margin-top: 50px;
+    }
+  }
+
+}
+
+.hidden{
+  display: none;
+}
+
+

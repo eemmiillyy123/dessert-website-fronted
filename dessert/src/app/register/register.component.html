@@ -1,0 +1,42 @@
+<div class="container">
+  <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-4 mx-auto align-items-center ">
+      <p class="login">註冊</p>
+      <hr>
+      <form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="register()" >
+        <!-- <div  formArrayName="insuredList" *ngFor="let control of formArray.controls; let index = index">
+          <fieldset [formGroupName]="index"> -->
+            <div class="style mb-3">
+              <label for="name" class="form-label">使用者名稱</label>
+              <input type="text" class="form-control" id="name" formControlName="name"placeholder="name" >
+              <!-- <span class="error-message">{{ getErrorMessage("name", index) }}</span> -->
+              <span class="error-message">{{ getErrorMessage("name") }}</span>
+            </div>
+
+            <div class="style mb-3">
+              <label for="email" class="form-label">電子信箱</label>
+              <input type="email" class="form-control" id="email"  formControlName="email"  placeholder="name@example.com" >
+              <span class="error-message">{{ getErrorMessage("email") }}</span>
+            </div>
+            <div class="style mb-3">
+              <label for="password" class="form-label">密碼</label>
+              <div class="passwordSelection">
+                <input type="password" class="form-control" id="password" formControlName="password"  placeholder="請輸入密碼" >
+                <!-- <i class="eye" [ngClass]="{'bi':true,'bi-eye-fill':pwdShow,'bi-eye-slash-fill':!pwdShow}" (click)="pwdShow=!pwdShow"></i> -->
+                <span class="error-message">{{ getErrorMessage("password") }}</span>
+                <span></span>
+              </div>
+            </div>
+          <!-- </fieldset>
+        </div> -->
+
+        <div class="login_btn d-flexjustify-content-end ">
+          <!-- <button type="button" class="btn btn-secondary">登入</button> -->
+          <button type="button" [disabled]="isFormInvalid"   class="btn btn-primary " (click)=register()>註冊</button>
+        </div>
+      </form>
+
+  </div>
+  </div>
+</div>

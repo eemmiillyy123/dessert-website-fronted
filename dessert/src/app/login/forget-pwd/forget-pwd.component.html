@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 mx-auto align-items-center ">
+      <p class="forget">忘記密碼</p>
+
+      <form *ngIf="formGroup" [formGroup]="formGroup">
+      <!-- *ngIf="formGroup" [formGroup]="formGroup"  > -->
+        <div class="sytle mb-5">
+          <label for="email" class="form-label">電子信箱</label>
+          <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com" >
+          <span class="error-message">{{getErrorMessage("email")}}</span>
+        </div>
+        <div class="login_btn d-flex justify-content-end ">
+          <button type="button" class="btn btn-secondary" (click)=forgetPwd()>寄送驗證信</button>
+        </div>
+      </form>
+  </div>
+</div>

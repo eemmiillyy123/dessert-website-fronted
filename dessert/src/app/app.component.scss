@@ -1,0 +1,147 @@
+// :root {
+//   --font-family-paragraph: var(--font-paragraph), andy-money, Noto Sans, Mitr, Athiti, Noto Sans TC, Noto Sans SC, system-ui, -apple-system, Segoe UI, sans-serif;
+//   --font-family-title: var(--font-title), andy-money, Noto Sans, Mitr, Athiti, Noto Sans TC, Noto Sans SC, system-ui, -apple-system, Segoe UI, sans-serif;
+// }
+body{
+  background-color: #f0eded;
+  // font-family:PingFang TC, Light;
+}
+// .dessert_icon{
+//   position: relative;
+//   overflow: hidden;
+//   width: 80%;
+//   height: 0;
+//   padding-bottom: 56.25%;
+//   img {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+// }
+.abovepart{
+  background-color: #f0eded;
+  // margin: 0 auto;
+}
+.header{
+  // background-color: #cac8c8;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.06);
+  z-index:1000;
+  background: whitesmoke;
+  ul{
+    padding-inline-start: 0px;
+    width: 1000px;
+    margin:0 auto;
+    gap: 80px;
+  }
+  li{
+    display: inline;
+    // margin-right: 80px;
+    .sugarbliss_icon{
+      font-family: 'Edu SA Beginner', cursive;
+      font-size: 64px;
+    }
+    .dropdown-submenu {
+      position: relative;
+      .dropdown-menu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+      }
+    }
+}
+  span{
+    font-size: 32px;
+  }
+  .no-caret::after {
+    display: none;
+  }
+}
+
+.subscription{
+  height: 321px;
+  background: #D9D9D9;
+  gap: 50px;
+  padding: 0px 50px;
+  p{
+    font-size: 32px;
+  }
+  .input-group{
+    width: 50%;
+  }
+}
+// .card{
+  // displa position: fixed;
+  // right: 0px;
+  // position: fixed;
+  // right: 0px;
+// }
+// .cart{
+//   background: grey;
+//   width: 300px;
+//   height: 120px;
+//   z-index: 150;
+//   transform: translate(200px, 0);
+
+// }
+.cart {
+  transform: translateX(100%); /* 初始位置: 完全在屏幕的右側 */
+  transition: transform 0.3s ease-out; /* 平滑過渡效果 */
+  position: fixed;
+  top: 200px;
+  right: 0;
+  max-width: 270px;
+  background-color:#ffffff;
+  overflow-y: auto; /* 添加垂直滾動條 */
+  box-shadow: -2px 0px 5px rgba(0,0,0,0.3); /* 陰影效果 */
+  max-height: calc(100vh - 250px);
+  z-index: 200;
+  .trash{
+    cursor: pointer;
+  }
+  .checkout{
+    background: #2008d6;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    position:sticky;
+    bottom:0;
+  }
+}
+
+
+.cart.active {
+  transform: translateX(0); /* 活躍時的位置: 完全在屏幕上 */
+}
+
+.footer{
+  margin-top: 30px;
+  .sugarbliss_icon{
+    font-family: 'Edu SA Beginner', cursive;
+    font-size: 64px;
+  }
+  .information{
+     margin-top: 30px;
+     margin-bottom: 30px;
+     gap: 120px;
+     p{
+      font-size: 30px;
+      font-family: 'Edu SA Beginner', cursive;
+     }
+     span{
+      font-size: 30px;
+     }
+  }
+  .brand i{
+    margin-right: 30px;
+    margin-bottom: 40px;
+    font-size: 30px;
+  }
+}
+
+.hover-pointer {
+  cursor: pointer; /* 鼠标悬停时显示小手 */
+}

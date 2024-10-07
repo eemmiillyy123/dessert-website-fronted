@@ -1,0 +1,28 @@
+.cart-text{
+  background: rgb(219, 217, 224);
+}
+
+.border-bottom{
+  border-bottom: 2px solid rgb(219, 217, 224);
+}
+.progress-container {
+  position: relative;
+  margin: 4rem 0;
+  height: 2rem;
+}
+
+.progress {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 1px;
+}
+
+.progress-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+}

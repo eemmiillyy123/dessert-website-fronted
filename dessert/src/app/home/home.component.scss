@@ -1,0 +1,44 @@
+.section{
+  // gap: 120px;
+  margin-bottom: 100px;
+}
+.description{
+  font-size: 22px;
+  .subject{
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+}
+.evaluation{
+  margin-bottom: 50px;
+  p{
+    font-size: 32px;
+  }
+  .customer_evaluation{
+    text-indent: 2rem;
+    margin-bottom: 10px;
+  }
+  .evaluation_section{
+    height: 500px;
+    background: #8E6A6A;
+    padding: 50px 50px;
+    ul{
+      list-style-type: none;
+      .section1{
+            background: #C7BCBC;
+            width: 300px;
+            height: 400px;
+            border-radius: 20px;
+            padding: 20px;
+            .username{
+              margin-bottom: 10px;
+              margin-top: 10px;
+              font-size: 18px;
+            }
+            p{
+              font-size: 20px;
+            }
+        }
+      }
+  }
+}

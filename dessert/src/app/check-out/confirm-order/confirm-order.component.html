@@ -1,0 +1,113 @@
+<router-outlet></router-outlet>
+<div class="container py-2" >
+  <div class="process mx-auto" style="width: 600px;height: 40px;">
+    <div class="progress-container">
+      <div class="progress">
+          <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <button type="button" class="progress-btn btn btn-sm btn-secondary rounded-pill" style="left: 0%;">1</button>
+      <button type="button" class="progress-btn btn btn-sm btn-secondary rounded-pill" style="left: 50%; transform: translateX(-50%) translateY(-50%);">2</button>
+      <button type="button" class="progress-btn btn btn-sm btn-secondary rounded-pill" style="right: 0%;">3</button>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between mx-auto" style="width: 630px;">
+    <p>購物車</p>
+    <p>填寫資料</p>
+    <p>訂單確認</p>
+  </div>
+  <br>
+  <div class="order d-flex justify-content-around">
+    <div class="orderInformation">
+      <p class="text-center">訂單資訊</p>
+      <table class="table table-bordered" style="width: 400px;">
+        <thead>
+          <!-- <tr>
+            <th scope="row">訂單資訊</th>
+          </tr> -->
+        </thead>
+        <tbody>
+          <tr class="table-active">
+            <th scope="col" >訂單編號</th>
+            <td>{{orderArray[0].orderNumber}}</td>
+          </tr>
+          <tr>
+            <th scope="col">購買人姓名</th>
+            <td>{{orderArray[0].name}}</td>
+          </tr>
+          <tr class="table-active">
+            <th scope="col">購買人手機號碼</th>
+            <td>{{orderArray[0].phoneNumber}}</td>
+          </tr>
+          <tr>
+            <th scope="col">購買人地址</th>
+            <td>{{orderArray[0].site}}</td>
+          </tr>
+          <tr class="table-active">
+            <th scope="col">送貨方式</th>
+            <td>{{orderArray[0].deliveryMethod}}</td>
+          </tr>
+          <tr>
+            <th scope="col">付款方式 </th>
+            <td>{{orderArray[0].paymentMethod}}</td>
+          </tr>
+          <tr class="table-active">
+            <th scope="col">選擇日期</th>
+            <td>{{orderArray[0].deliveryDate}}</td>
+          </tr>
+          <tr>
+            <th scope="col">備註</th>
+            <td>{{orderArray[0].note}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="productlist">
+      <p class="text-center">商品</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">商品明細</th>
+            <th scope="col">小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of array">
+            <!-- <div *ngFor="let item of array"> -->
+              <th scope="row">{{item.productName}}</th>
+              <td class="text-right">NT${{item.price}}*{{item.count}}</td>
+            <!-- </div> -->
+          </tr>
+          <div class="allItem text-right ">
+            <!-- <p>總共{{array.length}}項商品</p> -->
+            <p class="text-right">總金額: NT$ {{ getTotalAmount() }}</p>
+          </div>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <div class="mx-auto d-flex justify-content-between my-4" style="width: 900px;">
+    <button type="button" (click)="goBack()">上一步</button>
+    <button type="button" data-toggle="modal" data-target="#myModal">送出訂單</button>
+  </div>
+   <!-- 模態框 -->
+   <div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">成功送出訂單</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>按下確定會前往訂單頁面</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="changeToMyOrder()">確定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

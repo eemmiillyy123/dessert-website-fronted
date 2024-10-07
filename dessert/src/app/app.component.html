@@ -1,0 +1,203 @@
+
+<div class="abovepart ">
+    <div class="header py-4" style="position:sticky;top:0;z-index: 10000;">
+      <ul class="d-flex justify-content-space-between align-items-center">
+        <li><span class="sugarbliss_icon ">Sugar Bliss</span></li>
+        <li><span routerLink="/home" class="hover-pointer">首頁</span></li>
+        <li>
+          <!-- <div class="dropdown">
+            <a #dropdownButton class="dropdown-toggle no-caret"  id="dropdownMenuButton" >
+              <span>商品</span>
+            </a>
+            <div #dropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">甜點</a>
+              <a class="dropdown-item" href="#">飲品</a>
+            </div> -->
+          <!-- </div> -->
+
+          <div class="dropdown" >
+            <span #dropdownButton1 class="dropdown-toggle no-caret hover-pointer"  data-target="dropdownMenu1"   (click)="openMenu1($event)" >
+                商品
+            </span>
+            <div id="dropdownMenu1" class="dropdown-menu" [ngClass]="{'show': firstLayerIsShow}" *ngIf="listStatus" >
+              <!-- firstLayerIsShow 為 true 時，將 show 這個 CSS 類別應用到該元素上 -->
+                <div class="dropdown-submenu" >
+                  <ng-container *ngFor="let A of firstLayer">
+                    <a #dropdownButton2 class="dropdown-item dropdown-toggle no-caret " data-target="dropdownMenu2"  (click)=openMenu2($event,A.firstLayerId)>{{A.name}}</a>
+                  </ng-container>
+                          <div id="dropdownMenu2" class="dropdown-menu" [ngClass]="{'show': secondLayerIsShow}">
+                            <div class="dropdown-submenu">
+                              <ng-container *ngFor="let B of secondLayer">
+                                <ng-container *ngIf=" B.firstLayerId === first_layer_ID">
+                                  <a #dropdownButton3 class="dropdown-item dropdown-toggle no-caret " data-target="dropdownMenu3" (click)=openMenu3($event,B.secondLayerId,B.dropdownId)>{{B.name}}</a>
+                                </ng-container>
+                              </ng-container>
+                            <!-- </div> -->
+                                  <!-- <ng-container *ngFor="let C of listC">
+                                    <ng-container *ngIf=" C.firstLayerId === A_ID&&C.secondLayerId==B_ID&&C.thirdLayerId!=0"> -->
+                                      <div id="dropdownMenu3" class="dropdown-menu" [ngClass]="{'show': thirdLayerIsShow}">
+                                        <div class="dropdown-submenu">
+                                          <ng-container *ngFor="let C of thirdLayer">
+                                            <ng-container *ngIf=" C.secondLayerId === second_layer_ID&&C.firstLayerId === first_layer_ID">
+                                                  <a #dropdownButton4 class="dropdown-item dropdown-toggle no-caret " data-target="dropdownMenu4" (click)="openPage(C.dropdownId) ">{{C.name}}</a>
+
+                                            </ng-container>
+                                          </ng-container>
+                                        </div>
+                                      </div>
+                                    <!-- </ng-container>
+                                  </ng-container> -->
+                              </div>
+                          </div>
+                </div>
+            </div>
+          </div>
+
+
+                    <!-- <div id="dropdownMenu2" class="dropdown-submenu dropdown-menu">
+                        <a #dropdownButton3 class="dropdown-item dropdown-toggle no-caret" data-target="dropdownMenu3">門市限定</a>
+                        <div class="dropdown-submenu">
+                          <div id="dropdownMenu3" class="dropdown-menu">
+                            <a class="dropdown-item">磅蛋糕</a>
+                            <a class="dropdown-item">起司蛋糕</a>
+                         </div>
+                        </div>
+
+                        <a class="dropdown-item">線上訂購</a>
+                    </div> -->
+
+                <!-- <a class="dropdown-item">{{p2}}</a> -->
+                <!-- <a #dropdownButton4 class="dropdown-item dropdown-toggle no-caret" data-target="dropdownMenu4">{{p2}}</a> -->
+                <!-- <div class="dropdown-submenu">
+                  <div id="dropdownMenu4" class="dropdown-menu">
+                      <a class="dropdown-item">咖啡</a>
+                      <a class="dropdown-item">茶</a>
+                      <a class="dropdown-item">其他</a>
+                  </div>
+
+                </div> -->
+
+          <!-- 兩層
+          <div class="dropdown">
+            <a #dropdownButton class=" dropdown-toggle no-caret"  data-target="dropdownMenu1">
+                <span>商品</span>
+            </a>
+            <div id="dropdownMenu1" #dropdownMenu class="dropdown-menu">
+                <div class="dropdown-submenu">
+                    <a #dropdownButton class="dropdown-item dropdown-toggle no-caret" data-target="dropdownMenu2">甜點</a>
+                    <div id="dropdownMenu2" #dropdownMenu class="dropdown-menu">
+                        <a class="dropdown-item">磅蛋糕</a>
+                        <a class="dropdown-item">起司蛋糕</a>
+                        <a class="dropdown-item">冰淇淋</a>
+                    </div>
+                </div>
+                <a class="dropdown-item">飲品</a>
+            </div>
+        </div> -->
+        <!-- 一層 -->
+          <!-- <div class="dropdown">
+            <a #dropdownButton class="dropdown-toggle no-caret" id="dropdownMenuButton" data-target="dropdownMenu">
+              <span>商品</span>
+            </a>
+            <div id="dropdownMenu" #dropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">甜點</a>
+              <a class="dropdown-item" href="#">飲品</a>
+            </div>
+          </div> -->
+          </li>
+        <li><span class="hover-pointer">收藏</span></li>
+        <li><span routerLink="/login" class="hover-pointer"><i class="bi bi-person-circle"></i></span></li>
+        <li><span class="hover-pointer"><i class="bi bi-cart-fill fs-1" (click)="cartShow($event)"></i></span></li>
+      </ul>
+      <!-- <div class="dessert_icon">
+        <img src="https://images.unsplash.com/photo-1565631746000-178cc48d70c2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0Mzc0NDd8MHwxfHNlYXJjaHwxNDl8fGRlc3NlcnR8ZW58MHx8fHwxNjkwNTA2NTA0fDA&ixlib=rb-4.0.3&q=85&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450" alt="dessert_icon" >
+      </div> -->
+
+    </div>
+    <div class="content">
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- <div *ngIf="isShow" > -->
+    <!-- <div class="card"> -->
+    <ng-template #noProductsTemplate>
+        <div class="empty text-center p-5">
+          你的購物車是空的
+        </div>
+
+    </ng-template>
+      <!-- <div class="cart " [class.active]="isShow"> -->
+      <div class="cart " [class.active]="cartStatus">
+        <ng-container *ngIf="array && array.length > 0; else noProductsTemplate">
+          <div *ngFor="let item of array">
+              <div class="information d-flex p-2 row m-0">
+                <div class="d-block text-center col-4">
+                  <img src="{{item.img}}" alt="" width="60px" height="60px">
+                </div>
+                <div class="des col-6">
+                  <p class="d-inline" style="font-weight:bold;">{{ item.productName }}</p>
+                  <p class="d-inline"style="font-weight:bold">{{ item.count }}*NT${{ item.price }}</p>
+                </div>
+                <div class="trash col-2" (click)="deleteProduct($event,item.productName)">
+                  <i class=" bi bi-trash" ></i>
+                </div>
+
+              </div>
+              <hr class="m-0">
+          </div>
+          <div class="checkout text-center p-1" (click)="checkOut()">
+            結帳
+          </div>
+        </ng-container>
+      </div>
+    <!-- </div> -->
+  <!-- </div> -->
+
+
+  <div class="subscription d-flex align-items-center">
+    <p>訂閱我們以獲得最新消息!</p>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Your email address" aria-label="Recipient's username" aria-describedby="basic-addon2" width="500px">
+      <span class="input-group-text" id="basic-addon2">subscribe</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer">
+      <span class="sugarbliss_icon">Sugar Bliss</span>
+      <div class="information d-flex">
+        <div class="contact_information">
+          <p>02-123456789</p>
+          <p>No.123, Sweet Avenue, Candy City, 56789</p>
+          <p>sugarybliss.bakery@gmail.com</p>
+        </div>
+        <span>讓 Sugar Bliss 成為您生活中的一個甜蜜的片刻，我們熱情期待您的到來，共享這無窮的甜蜜與幸福！</span>
+      </div>
+      <div class="brand">
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-instagram"></i>
+        <!-- <i class="fa-brands fa-facebook fa-2x"></i> -->
+        <!-- <i class="fa-brands fa-instagram fa-2x"></i> -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div>
+    <h1>教師記分簿</h1>
+    <hr/>
+    <div class="search">
+      <form _ngcontent-ng-c3131305967="" novalidate="" ng-reflect-form="[object Object]" class="ng-valid ng-dirty ng-touched">
+        <label _ngcontent-ng-c3131305967="" for="exampleFormControlInput1" class="form-label">輸入學號:</label>
+        <input _ngcontent-ng-c3131305967="" type="text" placeholder="學號" formcontrolname="student_id" class="form-control ng-valid ng-dirty ng-touched" ng-reflect-name="student_id">
+      </form>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary">Search</button> -->
+
+  <!-- <img src="https://plus.unsplash.com/premium_photo-1678715022988-417bbb94e3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGVzc2VydHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60" width=200px height=200px alt="">  -->
+  <!-- <a [routerLink]="['/home']">home</a> -->
+
+
+
+

@@ -1,0 +1,33 @@
+<div class="container pt-5">
+  <div  *ngFor="let item of productData">
+    <div class="row">
+      <div class="col-5">
+          <div class="text-center">
+            <img src="{{item.img}}" alt="" width="80%" height="85%">
+            <div class="productNameAndPrice text-start">
+              <p class="mb-0">{{item.productName}}</p>
+              <p class="text-start">NT${{item.price}}</p>
+            </div>
+
+          </div>
+      </div>
+      <div class="col-5">
+        <p class="pre-line-style">{{item.introduction}}</p>
+        <div class="count d-flex align-items-center mb-3">
+          <i class="bi bi-dash mr-2" style="font-size: 1.5rem;" (click)="minus()"></i>
+          <p class="mb-0 mr-2" style="font-size: 1.5rem;">{{count}}</p>
+          <i class="bi bi-plus mr-2" style="font-size: 1.5rem;" (click)="plus()"></i>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm mb-3 px-5" (click)="addToCart()">加入購物車</button>
+        <div class="likelist d-flex" (click)="heartFilled()">
+          <i [ngClass]="isHeartFilled?'bi bi-heart-fill mr-1':'bi bi-heart mr-1'"></i>
+          <p class="mb-0">加入我的收藏</p>
+        </div>
+        <hr>
+        <p class="pre-line-style">{{ item.description }}</p>
+      </div>
+      <div  class="col-2">
+        </div>
+      </div>
+  </div>
+</div>
